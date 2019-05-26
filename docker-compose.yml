@@ -1,0 +1,12 @@
+version: '3'
+services:
+    web:
+        build:
+            context: .  #This specifies that context is current directory only.For nested folders, place some other values.
+            dockerfile: Dockerfile.dev  #This represents which custom file to build the image 'web'
+        ports:
+            - "3000:3000"   #port forwarding
+        volumes:
+            - /app/node_modules  #There is no mapping, lack of semicolon
+            - .:/app  # All contents in current folder mapped to inside of app folder of docker container defined in dockerfile.
+     
