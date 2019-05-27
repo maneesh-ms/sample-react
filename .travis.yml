@@ -6,4 +6,4 @@ before_install:
     - docker build -t maneesh-ms/docker-sample-react -f Dockerfile.dev .
 
 script:
-    - docker run maneesh-ms/docker-sample-react npm run test -- --coverage
+    - docker run -e CI=true maneesh-ms/docker-sample-react npm run test -- --watchAll=false
